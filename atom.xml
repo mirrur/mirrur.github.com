@@ -1,17 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[mirrur]]></title>
   <link href="http://mirrur.github.io/atom.xml" rel="self"/>
   <link href="http://mirrur.github.io/"/>
-  <updated>2014-09-15T14:00:54+08:00</updated>
+  <updated>2014-09-15T14:29:39+08:00</updated>
   <id>http://mirrur.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[mirrur]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[万能的浮动元素清除]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/"/>
+    <updated>2014-09-15T14:27:13+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu</id>
+    <content type="html"><![CDATA[<p>刚开始学前端知识时，在书上看到清除浮动用的是增加一个空标签 <code>&lt;div class="clear"&gt;&lt;/div&gt;</code>
+这种方法是在浮动元素的后面增加一个非浮动元素，这样便改变了html结构，增加了无语义冗余标签。后来在真正工作中，才知道原来有更好的清除方法。</p>
+
+<pre><code>/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+</code></pre>
+
+<p>原理：<br/>
+①利用css伪类选择符，在父容器的尾部创建一个非浮动块级子元素，元素内容是空。<br/>
+②IE 6不支持:after选择符，需用zoom激活ie/7的<a href="http://mirrur.github.io/blog/2014/09/13/ie-layoutbu-ju-de-ren-shi/">hasLayout</a></p>
+
+<p>浏览器支持: Firefox 3.5+, Safari 4+, Chrome, Opera 9+, IE 6+</p>
+
+<p>参考链接：<a href="http://nicolasgallagher.com/micro-clearfix-hack/">A new micro clearfix hack</a><br/>
+本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">万能的浮动元素清除</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[浏览器兼容问题集]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/"/>
+    <updated>2014-09-15T14:25:21+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji</id>
+    <content type="html"><![CDATA[<p>浏览器兼容这是前端必须面对的问题，我在项目中也会经常遇到，网上也有很多关于兼容问题的帖子，在这里只是简单的整理下经典的我遇到的。</p>
+
+<p>①不同浏览器的标签默认的margin和padding不同。<br/>
+解决：样式重置 *{margin:0;padding:0;}<br/>
+②双外边距浮动bug。块级元素设置浮动后，在有横向margin的情况下，ie6中显示的margin比实际设置的大双倍。<br/>
+解决：将块级元素的display设置为inline</p>
+
+<p>③img标签引入两图片，出现莫名的间距问题。<br/>
+解决：float或者在html代码中去掉img标签间的空格或回车<br/>
+④ie6不支持min-height（可以说height的值在它看来就是最小高度）<br/>
+解决：法一height:auto !important; min-height:20px; height:20px;<br/>
+//原理ie6不认识！important，故这里height是20px，但超出这个值时，ie会自动撑开，ie7以上及其他高级浏览器认识！important，所以此句相当于height:auto !important; min-height:20px;<br/>
+法二min-height:20px; <em>height:20px;<br/>
+//有确定值的</em>height只有ie6认识</p>
+
+<p>⑤CSS透明<br/>
+解决IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)<br/>
+FF：opacity:0.6<br/>
+⑥div居中问题,vertical-align:middle对于IE浏览器来说没有效果。<br/>
+解决：将文字的行高设置与DIV一样</p>
+
+<p>BTW, 浏览器hacker规则：<br/>
+ie6能识别 _ 和 *<br/>
+ie7能识别 * 和 ！important<br/>
+FF 能识别！important</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/">浏览器兼容问题集</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[jquery1.9 下检测浏览器类型和版本]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/"/>
+    <updated>2014-09-15T14:24:14+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben</id>
+    <content type="html"><![CDATA[<p>浏览器检测,$.browser方法在jquery1.9版本已经被剔除，项目中刚好遇到这个问题,各种百度,试过好多方法都没用，只有下面这个是可行的,贴出来共同学习~</p>
+
+<p>判断浏览器类型：<br/>
+$.browser.mozilla = /firefox/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());<br/>
+等号后面的表达式返回的就是 true/false， 可以直接用来替换原来的 $.browser.msie 等。</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/">jquery1.9 下检测浏览器类型和版本</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IE 8 error with EOT: CSS3111]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/15/ie-8-error-with-eot-css3111/"/>
+    <updated>2014-09-15T14:22:32+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/15/ie-8-error-with-eot-css3111</id>
+    <content type="html"><![CDATA[<p>在项目中用到了@font-face引入网页字体，在ie8中却总是报css3111这样的错误。解决办法：</p>
+
+<p>1 在以下网站中尝试，重新生成.eot文件<br/>
+<a href="http://www.font2web.com/">http://www.font2web.com/</a> <br/>
+<a href="http://www.fontsquirrel.com/fontface/generator">http://www.fontsquirrel.com/fontface/generator</a><br/>
+2 如果还不行的话，那应该是字体本身的问题，如果字体的Fontname 和 Family Name 名字不一致的话 在ie6-8浏览器中就会有那样的错误，解决这问题的办法：<br/>
+① 先下载<a href="http://sourceforge.net/projects/fontforge/">FontForge</a>软件并安装<br/>
+② 打开字体文件<br/>
+③ 然后在菜单中选择Element > Font Info<br/>
+④ 确保Fontname, Family Name and Name for Humans三个名称一致<br/>
+⑤ 将修改后的font文件保存为TTF或OTF格式，用在线字体转换器(上面网址中的一个)转换成你要的格式，就ok了~</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/ie-8-error-with-eot-css3111/">IE 8 error with EOT: CSS3111</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[IE layout 布局的认识]]></title>

@@ -5,11 +5,12 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>  | mirrur</title>
+	<title>jquery1.9 下检测浏览器类型和版本  | mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
-<meta name="description" content="Page not found Sorry about that! Unfortunately the page you were looking for could not be found. It might have been removed, lost or never existed. &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="浏览器检测,$.browser方法在jquery1.9版本已经被剔除，项目中刚好遇到这个问题,各种百度,试过好多方法都没用，只有下面这个是可行的,贴出来共同学习~ 判断浏览器类型：
+$.browser.mozilla = /firefox/.test(navigator.userAgent. &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,29 +98,58 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner"><article class="page">
-    <div class="entry-content"><header>
-  <h1 class="entry-title">Page not found</h1>
-  <p class="meta">Sorry about that!</p>
-</header>
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">jquery1.9 下检测浏览器类型和版本</h2>
+	<div class="entry-content"><p>浏览器检测,$.browser方法在jquery1.9版本已经被剔除，项目中刚好遇到这个问题,各种百度,试过好多方法都没用，只有下面这个是可行的,贴出来共同学习~</p>
 
-<p>
-  Unfortunately the page you were looking for could not be found. It might have
-  been removed, lost or never existed. You could try and find it using the
-  <script>
-    var arrURL = document.URL.split("/");
-    var arrParams = arrURL[3].split("?");
-    var searchParam = arrParams[0].substr(0, arrParams[0].lastIndexOf("."));
-    
-    document.write('<a href="https://www.google.com/search?q=site:mirrur.github.io ' + searchParam + '">search</a>')
-  </script>
-  <noscript><a href="https://www.google.com/search?q=site%3Amirrur.github.io">search</a></noscript>
-  box (top right corner), browse the
-  <a href="/blog/archives">archives</a> or go to the
-  <a href="/">frontpage</a>.
-</p>
+<p>判断浏览器类型：<br/>
+$.browser.mozilla = /firefox/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());<br/>
+等号后面的表达式返回的就是 true/false， 可以直接用来替换原来的 $.browser.msie 等。</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/">jquery1.9 下检测浏览器类型和版本</a></p>
 </div>
-</article>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T14:24:14+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/jquery/'>jquery</a>
+
+</div>
+
+
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> &#8212;>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
 
 </div>

@@ -5,11 +5,13 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>  | mirrur</title>
+	<title>浏览器兼容问题集  | mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
-<meta name="description" content="Page not found Sorry about that! Unfortunately the page you were looking for could not be found. It might have been removed, lost or never existed. &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="浏览器兼容这是前端必须面对的问题，我在项目中也会经常遇到，网上也有很多关于兼容问题的帖子，在这里只是简单的整理下经典的我遇到的。 ①不同浏览器的标签默认的margin和padding不同。
+解决：样式重置 *{margin:0;padding:0;}
+②双外边距浮动bug。块级元素设置浮动后， &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,29 +99,75 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner"><article class="page">
-    <div class="entry-content"><header>
-  <h1 class="entry-title">Page not found</h1>
-  <p class="meta">Sorry about that!</p>
-</header>
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">浏览器兼容问题集</h2>
+	<div class="entry-content"><p>浏览器兼容这是前端必须面对的问题，我在项目中也会经常遇到，网上也有很多关于兼容问题的帖子，在这里只是简单的整理下经典的我遇到的。</p>
 
-<p>
-  Unfortunately the page you were looking for could not be found. It might have
-  been removed, lost or never existed. You could try and find it using the
-  <script>
-    var arrURL = document.URL.split("/");
-    var arrParams = arrURL[3].split("?");
-    var searchParam = arrParams[0].substr(0, arrParams[0].lastIndexOf("."));
-    
-    document.write('<a href="https://www.google.com/search?q=site:mirrur.github.io ' + searchParam + '">search</a>')
-  </script>
-  <noscript><a href="https://www.google.com/search?q=site%3Amirrur.github.io">search</a></noscript>
-  box (top right corner), browse the
-  <a href="/blog/archives">archives</a> or go to the
-  <a href="/">frontpage</a>.
-</p>
+<p>①不同浏览器的标签默认的margin和padding不同。<br/>
+解决：样式重置 *{margin:0;padding:0;}<br/>
+②双外边距浮动bug。块级元素设置浮动后，在有横向margin的情况下，ie6中显示的margin比实际设置的大双倍。<br/>
+解决：将块级元素的display设置为inline</p>
+
+<p>③img标签引入两图片，出现莫名的间距问题。<br/>
+解决：float或者在html代码中去掉img标签间的空格或回车<br/>
+④ie6不支持min-height（可以说height的值在它看来就是最小高度）<br/>
+解决：法一height:auto !important; min-height:20px; height:20px;<br/>
+//原理ie6不认识！important，故这里height是20px，但超出这个值时，ie会自动撑开，ie7以上及其他高级浏览器认识！important，所以此句相当于height:auto !important; min-height:20px;<br/>
+法二min-height:20px; <em>height:20px;<br/>
+//有确定值的</em>height只有ie6认识</p>
+
+<p>⑤CSS透明<br/>
+解决IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)<br/>
+FF：opacity:0.6<br/>
+⑥div居中问题,vertical-align:middle对于IE浏览器来说没有效果。<br/>
+解决：将文字的行高设置与DIV一样</p>
+
+<p>BTW, 浏览器hacker规则：<br/>
+ie6能识别 _ 和 *<br/>
+ie7能识别 * 和 ！important<br/>
+FF 能识别！important</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/">浏览器兼容问题集</a></p>
 </div>
-</article>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T14:25:21+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
+
+</div>
+
+
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> &#8212;>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
 
 </div>

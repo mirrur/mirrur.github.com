@@ -5,15 +5,16 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>A blogging framework for hackers.  | My Octopress Blog</title>
+	<title>  | mirrur</title>
 
-<meta name="author" content="Your Name"> 
+<meta name="author" content="mirrur"> 
 
-<meta name="description" content="ie与大多数浏览器的表现不一致有一个重要原因是，ie显示引擎中使用了layout布局，是很多显示bug的根源。 windows上的ie使用布局概念来控制元素的尺寸和定位。拥有布局的元素负责本身及其子元素的尺寸设置和定位。没拥有布局的元素，其尺寸和位置由最近的拥有布局的祖先元素控制。 &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="刚开始学前端知识时，在书上看到清除浮动用的是增加一个空标签 &lt;div class="clear"&gt;&lt;/div&gt;
+这种方法是在浮动元素的后面增加一个非浮动元素，这样便改变了html结构，增加了无语义冗余标签。后来在真正工作中，才知道原来有更好的清除方法。 /** * For &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+	<link href="/atom.xml" rel="alternate" title="mirrur" type="application/atom+xml">
 	<link rel="canonical" href="">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -63,8 +64,8 @@ $(document).ready(
 
 
 <body>
-	<header id="header" class="inner"><h1><a href="/">My Octopress Blog</a></h1>
-<h4>A blogging framework for hackers.</h4>
+	<header id="header" class="inner"><h1><a href="/">mirrur</a></h1>
+<h4></h4>
 <nav id="main-nav"><ul>
 	<li><a href="/">Blog</a></li>
 	<li><a href="/about">About</a></li>
@@ -98,6 +99,259 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">
+		
+			万能的浮动元素清除</a>
+	</h2>
+	<div class="entry-content">
+		<p>刚开始学前端知识时，在书上看到清除浮动用的是增加一个空标签 <code>&lt;div class="clear"&gt;&lt;/div&gt;</code>
+这种方法是在浮动元素的后面增加一个非浮动元素，这样便改变了html结构，增加了无语义冗余标签。后来在真正工作中，才知道原来有更好的清除方法。</p>
+
+<pre><code>/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+</code></pre>
+
+<p>原理：<br/>
+①利用css伪类选择符，在父容器的尾部创建一个非浮动块级子元素，元素内容是空。<br/>
+②IE 6不支持:after选择符，需用zoom激活ie/7的<a href="http://mirrur.github.io/blog/2014/09/13/ie-layoutbu-ju-de-ren-shi/">hasLayout</a></p>
+
+<p>浏览器支持: Firefox 3.5+, Safari 4+, Chrome, Opera 9+, IE 6+</p>
+
+<p>参考链接：<a href="http://nicolasgallagher.com/micro-clearfix-hack/">A new micro clearfix hack</a><br/>
+本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">万能的浮动元素清除</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T14:27:13+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/css/'>css</a>
+
+</div>
+
+
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/">
+		
+			浏览器兼容问题集</a>
+	</h2>
+	<div class="entry-content">
+		<p>浏览器兼容这是前端必须面对的问题，我在项目中也会经常遇到，网上也有很多关于兼容问题的帖子，在这里只是简单的整理下经典的我遇到的。</p>
+
+<p>①不同浏览器的标签默认的margin和padding不同。<br/>
+解决：样式重置 *{margin:0;padding:0;}<br/>
+②双外边距浮动bug。块级元素设置浮动后，在有横向margin的情况下，ie6中显示的margin比实际设置的大双倍。<br/>
+解决：将块级元素的display设置为inline</p>
+
+<p>③img标签引入两图片，出现莫名的间距问题。<br/>
+解决：float或者在html代码中去掉img标签间的空格或回车<br/>
+④ie6不支持min-height（可以说height的值在它看来就是最小高度）<br/>
+解决：法一height:auto !important; min-height:20px; height:20px;<br/>
+//原理ie6不认识！important，故这里height是20px，但超出这个值时，ie会自动撑开，ie7以上及其他高级浏览器认识！important，所以此句相当于height:auto !important; min-height:20px;<br/>
+法二min-height:20px; <em>height:20px;<br/>
+//有确定值的</em>height只有ie6认识</p>
+
+<p>⑤CSS透明<br/>
+解决IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)<br/>
+FF：opacity:0.6<br/>
+⑥div居中问题,vertical-align:middle对于IE浏览器来说没有效果。<br/>
+解决：将文字的行高设置与DIV一样</p>
+
+<p>BTW, 浏览器hacker规则：<br/>
+ie6能识别 _ 和 *<br/>
+ie7能识别 * 和 ！important<br/>
+FF 能识别！important</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/">浏览器兼容问题集</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T14:25:21+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
+
+</div>
+
+
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/">
+		
+			jquery1.9 下检测浏览器类型和版本</a>
+	</h2>
+	<div class="entry-content">
+		<p>浏览器检测,$.browser方法在jquery1.9版本已经被剔除，项目中刚好遇到这个问题,各种百度,试过好多方法都没用，只有下面这个是可行的,贴出来共同学习~</p>
+
+<p>判断浏览器类型：<br/>
+$.browser.mozilla = /firefox/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());<br/>
+等号后面的表达式返回的就是 true/false， 可以直接用来替换原来的 $.browser.msie 等。</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/">jquery1.9 下检测浏览器类型和版本</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T14:24:14+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/jquery/'>jquery</a>
+
+</div>
+
+
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/09/15/ie-8-error-with-eot-css3111/">
+		
+			IE 8 Error With EOT: CSS3111</a>
+	</h2>
+	<div class="entry-content">
+		<p>在项目中用到了@font-face引入网页字体，在ie8中却总是报css3111这样的错误。解决办法：</p>
+
+<p>1 在以下网站中尝试，重新生成.eot文件<br/>
+<a href="http://www.font2web.com/">http://www.font2web.com/</a> <br/>
+<a href="http://www.fontsquirrel.com/fontface/generator">http://www.fontsquirrel.com/fontface/generator</a><br/>
+2 如果还不行的话，那应该是字体本身的问题，如果字体的Fontname 和 Family Name 名字不一致的话 在ie6-8浏览器中就会有那样的错误，解决这问题的办法：<br/>
+① 先下载<a href="http://sourceforge.net/projects/fontforge/">FontForge</a>软件并安装<br/>
+② 打开字体文件<br/>
+③ 然后在菜单中选择Element > Font Info<br/>
+④ 确保Fontname, Family Name and Name for Humans三个名称一致<br/>
+⑤ 将修改后的font文件保存为TTF或OTF格式，用在线字体转换器(上面网址中的一个)转换成你要的格式，就ok了~</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/ie-8-error-with-eot-css3111/">IE 8 error with EOT: CSS3111</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T14:22:32+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/font-face/'>font-face</a>, <a class='category' href='/blog/categories/ie/'>ie</a>
+
+</div>
+
+
+	
+</div></article>
 
 
     <article class="post">
@@ -174,7 +428,7 @@ ie8使用全新的显示引擎，据称不用hasLayout属性，故解决了这�
 </nav></div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
-    Your Name
+    mirrur
 
 <br>
 Powered by Octopress.

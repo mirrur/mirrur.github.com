@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jquery | mirrur]]></title>
+  <link href="http://mirrur.github.io/blog/categories/jquery/atom.xml" rel="self"/>
+  <link href="http://mirrur.github.io/"/>
+  <updated>2014-09-15T14:29:39+08:00</updated>
+  <id>http://mirrur.github.io/</id>
+  <author>
+    <name><![CDATA[mirrur]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[jquery1.9 下检测浏览器类型和版本]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/"/>
+    <updated>2014-09-15T14:24:14+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben</id>
+    <content type="html"><![CDATA[<p>浏览器检测,$.browser方法在jquery1.9版本已经被剔除，项目中刚好遇到这个问题,各种百度,试过好多方法都没用，只有下面这个是可行的,贴出来共同学习~</p>
+
+<p>判断浏览器类型：<br/>
+$.browser.mozilla = /firefox/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());<br/>
+$.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());<br/>
+等号后面的表达式返回的就是 true/false， 可以直接用来替换原来的 $.browser.msie 等。</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/">jquery1.9 下检测浏览器类型和版本</a></p>
+]]></content>
+  </entry>
+  
+</feed>

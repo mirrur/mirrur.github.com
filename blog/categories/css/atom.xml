@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: css | mirrur]]></title>
+  <link href="http://mirrur.github.io/blog/categories/css/atom.xml" rel="self"/>
+  <link href="http://mirrur.github.io/"/>
+  <updated>2014-09-15T14:29:39+08:00</updated>
+  <id>http://mirrur.github.io/</id>
+  <author>
+    <name><![CDATA[mirrur]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[万能的浮动元素清除]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/"/>
+    <updated>2014-09-15T14:27:13+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu</id>
+    <content type="html"><![CDATA[<p>刚开始学前端知识时，在书上看到清除浮动用的是增加一个空标签 <code>&lt;div class="clear"&gt;&lt;/div&gt;</code>
+这种方法是在浮动元素的后面增加一个非浮动元素，这样便改变了html结构，增加了无语义冗余标签。后来在真正工作中，才知道原来有更好的清除方法。</p>
+
+<pre><code>/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+</code></pre>
+
+<p>原理：<br/>
+①利用css伪类选择符，在父容器的尾部创建一个非浮动块级子元素，元素内容是空。<br/>
+②IE 6不支持:after选择符，需用zoom激活ie/7的<a href="http://mirrur.github.io/blog/2014/09/13/ie-layoutbu-ju-de-ren-shi/">hasLayout</a></p>
+
+<p>浏览器支持: Firefox 3.5+, Safari 4+, Chrome, Opera 9+, IE 6+</p>
+
+<p>参考链接：<a href="http://nicolasgallagher.com/micro-clearfix-hack/">A new micro clearfix hack</a><br/>
+本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">万能的浮动元素清除</a></p>
+]]></content>
+  </entry>
+  
+</feed>
