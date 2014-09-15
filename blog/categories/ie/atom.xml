@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ie | My Octopress Blog]]></title>
+  <title><![CDATA[Category: ie | My Octopress Blog]]></title>
   <link href="http://mirrur.github.io/blog/categories/ie/atom.xml" rel="self"/>
   <link href="http://mirrur.github.io/"/>
-  <updated>2014-09-15T12:55:16+08:00</updated>
+  <updated>2014-09-15T14:00:54+08:00</updated>
   <id>http://mirrur.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,11 +14,37 @@
 
   
   <entry>
-    <title type="html"><![CDATA[IE Layout 布局的认识]]></title>
+    <title type="html"><![CDATA[IE layout 布局的认识]]></title>
     <link href="http://mirrur.github.io/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/"/>
     <updated>2014-09-15T12:51:51+08:00</updated>
     <id>http://mirrur.github.io/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi</id>
-    <content type="html"><![CDATA[<p>hello world!!</p>
+    <content type="html"><![CDATA[<p>ie与大多数浏览器的表现不一致有一个重要原因是，ie显示引擎中使用了layout布局，是很多显示bug的根源。</p>
+
+<p>windows上的ie使用布局概念来控制元素的尺寸和定位。拥有布局的元素负责本身及其子元素的尺寸设置和定位。没拥有布局的元素，其尺寸和位置由最近的拥有布局的祖先元素控制。</p>
+
+<p>ie为毛要这么做呢？主要是为了减少性能开销。</p>
+
+<p>默认情况下拥有布局的元素：<br/>
+body, html, table, tr, td,<br/>
+img, hr, input, select, textarea, button<br/>
+iframe, embed, object, applet, ,marquee</p>
+
+<p>如何查看元素是否拥有布局？javascript的hasLayout，返回true 或 false，hasLayout是只读属性，无法设置。</p>
+
+<p>如何使元素拥有布局？ 通过设置一些css属性会自动触发ie的layout：<br/>
+float: left/ right<br/>
+display: inline-block<br/>
+width/height/zoom: 任何值<br/>
+writing-mode: tb-rl<br/>
+ie7中，触发布局的还有：<br/>
+overflow: hidden/scroll/auto<br/>
+min-width:任何值<br/>
+max-width:除none之外的任何值</p>
+
+<p>ie7虽说已修复了大多数与布局相关的问题，但其解决方法是找到常见的显示bug，然后通过在代码中创建例外来处理它们，而不是解决底层问题。<br/>
+ie8使用全新的显示引擎，据称不用hasLayout属性，故解决了这些问题的根源。</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/">IE layout布局的认识</a></p>
 ]]></content>
   </entry>
   
