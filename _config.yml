@@ -7,7 +7,7 @@ title: Mirrur
 subtitle: 
 author: mirrur
 simple_search: https://www.google.com/search
-description:
+description: 记录一个人的过去、现在、和未来，简简单单...
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -99,3 +99,7 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+# duoshuo comments
+duoshuo_comments: true
+duoshuo_short_name: mirrur

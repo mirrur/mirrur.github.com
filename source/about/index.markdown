@@ -5,6 +5,7 @@ date: 2014-09-15 15:15
 comments: true
 sharing: true
 footer: true
+keywords: mirrur's resume
 ---
 
 <ul>
