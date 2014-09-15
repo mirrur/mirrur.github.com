@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[mirrur]]></title>
+  <title><![CDATA[Mirrur]]></title>
   <link href="http://mirrur.github.io/atom.xml" rel="self"/>
   <link href="http://mirrur.github.io/"/>
-  <updated>2014-09-15T14:29:39+08:00</updated>
+  <updated>2014-09-15T16:04:29+08:00</updated>
   <id>http://mirrur.github.io/</id>
   <author>
     <name><![CDATA[mirrur]]></name>
