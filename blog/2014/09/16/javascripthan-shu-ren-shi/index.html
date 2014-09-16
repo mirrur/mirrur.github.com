@@ -1,0 +1,235 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>javascript函数认识  | Mirrur</title>
+
+<meta name="author" content="mirrur"> 
+
+<meta name="description" content="记录一个人的过去、现在、和未来，简简单单..."> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Mirrur" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+		<link href="/stylesheets/custom_mirrur.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Mirrur</a></h1>
+<h4></h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:mirrur.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Javascript函数认识</h2>
+	<div class="entry-content"><p>①函数实际上是对象，每个函数都是Function类型的实例，具有属性和方法。<br/>
+②函数是对象，故函数名实际是一个指向函数对象的指针，不会与某个函数绑定。</p>
+
+<p>③函数定义三种方式：</p>
+
+<blockquote><p>  a、函数声明：function a(){ &hellip; }<br/>
+  b、函数表达式定义 :var a = function(){ &hellip; }<br/>
+  c、Function构造函数:var a = new Function(a, b, c) //最后一个参数始终是函数体，不推荐，两次解析代码，影响性能</p></blockquote>
+
+<p>④函数名仅是指向函数的指针，与包含对象指针的其他变量无不同。【不带括号的函数名访问的是函数指针】<br/>
+⑤函数名是函数的指针，故定义同名函数，后者会覆盖前者，所以js中没有函数重载的概念。</p>
+
+<blockquote><p>   函数重载：多个函数用同一个名字，但参数表即参数的个数或数据类型可以不同，调用的时候，虽然方法名字相同，但根据参数表可以自动调用对应的函数。</p></blockquote>
+
+<p>⑥函数声明与函数表达式的区别：</p>
+
+<blockquote><p>  a、他俩唯一的区别在于解析器在向执行环境中加载数据时，顺序不一样。<br/>
+  b、解析器先读取函数声明，并使其在执行任何代码之前可调用【声明提前】<br/>
+  c、函数表达式要等到解析器执行到它所在的代码行时，才会真正被解析执行。<br/>
+  d、函数声明提升过程，读取并将函数声明添加到执行环境中。</p></blockquote>
+
+<p>⑦js中函数名本身就是一个变量，故函数可做为值来使用：</p>
+
+<blockquote><p>  a、将函数像传递参数一样传递给另一个函数<br/>
+  b、将一个函数作为另一个函数的结果返回<br/>
+  c、可以从一个函数中返回另一个函数</p></blockquote>
+
+<p>⑧在函数内部有两个特殊的对象：</p>
+
+<blockquote><p>  a、arguments是一个类数组对象，包含传入函数中的所有参数，主要用途是保存函数参数。<br/>
+【该对象有一属性callee，该属性是一个指针，指向拥有这个arguments对象的函数】<br/>
+  b、this引用的是函数据以执行的环境对象<br/>
+【哪个对象调用函数，this就指向谁；函数名就一变量，故不管那个对象调用函数，func1()和o.func1()指向的都是同一个函数】<br/>
+  c、另一对象属性caller，保存着调用当前函数的函数引用<br/>
+【B函数中调用了A，此时A.caller将指向B函数】</p></blockquote>
+
+<p>⑨函数的属性和方法：</p>
+
+<blockquote><p>  a、每个函数包含两个属性：length和prototype<br/>
+  *   Ⅰ. length：函数希望接收的命名参数的个数<br/>
+  *   Ⅱ. prototype：保存所有实例方法的真正所在<br/>
+  b、每个函数都包含两个非继承而来的方法：apply()和call()作用都是在特定的作用域中调用函数，相当于设置函数体内this的值【扩充作用域】。区别仅在于接收参数的方式不同。<br/>
+  c、bind()：创建一个函数的实例，this绑定到传给bind的函数的值<br/>
+  d、toLocaleString()和toString()：返回函数的代码<br/>
+  e、valueOf()：返回函数的代码</p></blockquote>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/16/javascripthan-shu-ren-shi/">万能的浮动元素清除</a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-16T12:08:19+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/javascript/'>javascript</a>
+
+</div>
+
+
+	
+	
+          | <a href="#comments">Comments</a>
+    
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> &#8212;>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="Javascript函数认识"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"mirrur"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    mirrur
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>
