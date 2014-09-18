@@ -1,4 +1,4 @@
-User-agent: *
-Allow: 
+User-Agent: *
+Allow: /
 
 Sitemap: http://mirrur.github.io/sitemap.xml 
