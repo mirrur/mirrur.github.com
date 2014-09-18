@@ -47,4 +47,4 @@ categories: javascript
 >	e、valueOf()：返回函数的代码  
 
 
-本文链接：[万能的浮动元素清除](http://mirrur.github.io/blog/2014/09/16/javascripthan-shu-ren-shi/)
+本文链接：[javascript函数认识](http://mirrur.github.io/blog/2014/09/16/javascripthan-shu-ren-shi/)
