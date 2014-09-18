@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: #F1F4F9;
+			}
+			.floor {
+				position: relative;
+			}
+			.content {
+				height: 300px;
+			}
+			.h1 .content{
+				height: 400px;
+			}
+			.top {
+				width: 100%;
+				height: 60px;
+				background: #fff;
+				border-top: solid 10px #e7e7e7;
+				border-bottom: solid 10px #e7e7e7;
+			}
+			.fix {
+				position: fixed;
+				top: 0;
+			}
+			.static {
+				position: static;
+			}
+			.absolute {
+				position: absolute;
+				bottom: 0;
+			}
+			.padding60{
+				padding-top: 80px;
+			}
+			.header {
+				height: 300px;
+			}
+			.fc {
+				padding-top: 15px;
+			}
+			.footer {
+				height: 900px;
+				background: #bf0222;
+			}
+			.footer a, a:hover {
+				display: block;
+				padding-top: 400px;
+				text-align: center;
+				color: #eee;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">lll</div>
+		<div class="floor h1">
+			<div class="top food">first floor</div>
+			<div class="content fc">1111</div>
+		</div>
+		<div class="floor">
+			<div class="top">second floor</div>
+			<div class="content">2222</div>
+		</div>
+		<div class="floor">
+			<div class="top">third floor</div>
+			<div class="content">3333</div>
+		</div>
+		<div class="floor">
+			<div class="top">fourth floor</div>
+			<div class="content">4444</div>
+		</div>
+		<div class="floor">
+			<div class="top">fifth floor</div>
+			<div class="content">5555</div>
+		</div>
+		<div class="floor">
+			<div class="top">sixth floor</div>
+			<div class="content">6666</div>
+		</div>
+		<div class="footer">
+			<a href="http://mirrur.github.io/">Back To Blog</a>
+		</div>
+		<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var t,
+					bordersWidth = parseInt($('.top').css('border-top-width'));
+					floorArray = $('.floor'),
+					initTops = {},//存放各个top的初始位置
+					initPaddingTop = {},//存放.content的初始padding-top
+					initTopHeight = {},//存放.top的高度
+					placeholderBlock = {},
+					topArray = $('.floor .top');
+				$('.floor .top').each(function(index){
+
+					initTops[index] = $(this).offset().top;//初始top的位置包括border
+					initPaddingTop[index] = parseInt(floorArray.eq(index).find('.content').css('padding-top'));
+					initTopHeight[index] = $(this).height() + bordersWidth * 2;//包括上下border
+					placeholderBlock[index] = $(this).height() + bordersWidth * 2 + initPaddingTop[index];//用于占位(包含上下border和content原来的padding-top)
+				});
+
+				$(document).scroll(function(){
+					var _scrollTop = $(document).scrollTop();
+					for (var i = 0; i < floorArray.length; i++) {
+						if(initTops[i+1] == undefined){
+							initTops[i+1] = initTops[i] + floorArray.eq(i).find('.content').height() + initTopHeight[i];
+						}
+						//当前top滚动的距离大于次top初始位置时
+						if(_scrollTop > initTops[i]){
+							if(_scrollTop < initTops[i+1]-initTopHeight[i]){
+								$('.top').eq(i).removeClass('absolute').removeClass('static').addClass('fix');
+								floorArray.eq(i).find('.content').css('padding-top',placeholderBlock[i]);
+							}else if(_scrollTop >= initTops[i+1]-initTopHeight[i] && _scrollTop < initTops[i+1]){
+								$('.top').eq(i).removeClass('fix').removeClass('static').addClass('absolute');
+								floorArray.eq(i).find('.content').css('padding-top',placeholderBlock[i]);
+							}
+						}
+						//对于每个top，页面滚动上去的高度小于或top原来的位置时，top为static状态
+						else if(_scrollTop <= initTops[i]){
+							$('.top').eq(i).removeClass('fix').removeClass('absolute').addClass('static');
+							floorArray.eq(i).find('.content').css('padding-top',initPaddingTop[i]);
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

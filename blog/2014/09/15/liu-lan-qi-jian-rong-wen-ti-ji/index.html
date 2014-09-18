@@ -1,0 +1,215 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>浏览器兼容问题集  | Mirrur</title>
+
+<meta name="author" content="mirrur"> 
+
+<meta name="description" content="记录一个人的过去、现在、和未来，简简单单..."> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Mirrur" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+		<link href="/stylesheets/custom_mirrur.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Mirrur</a></h1>
+<h4></h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:mirrur.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">浏览器兼容问题集</h2>
+	<div class="entry-content"><p>浏览器兼容这是前端必须面对的问题，我在项目中也会经常遇到，网上也有很多关于兼容问题的帖子，在这里只是简单的整理下经典的我遇到的。</p>
+
+<p>①不同浏览器的标签默认的margin和padding不同。<br/>
+解决：样式重置 *{margin:0;padding:0;}<br/>
+②双外边距浮动bug。块级元素设置浮动后，在有横向margin的情况下，ie6中显示的margin比实际设置的大双倍。<br/>
+解决：将块级元素的display设置为inline</p>
+
+<p>③img标签引入两图片，出现莫名的间距问题。<br/>
+解决：float或者在html代码中去掉img标签间的空格或回车<br/>
+④ie6不支持min-height（可以说height的值在它看来就是最小高度）<br/>
+解决：法一height:auto !important; min-height:20px; height:20px;<br/>
+//原理ie6不认识！important，故这里height是20px，但超出这个值时，ie会自动撑开，ie7以上及其他高级浏览器认识！important，所以此句相当于height:auto !important; min-height:20px;<br/>
+法二min-height:20px; <em>height:20px;<br/>
+//有确定值的</em>height只有ie6认识</p>
+
+<p>⑤CSS透明<br/>
+解决IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)<br/>
+FF：opacity:0.6<br/>
+⑥div居中问题,vertical-align:middle对于IE浏览器来说没有效果。<br/>
+解决：将文字的行高设置与DIV一样</p>
+
+<p>BTW, 浏览器hacker规则：<br/>
+ie6能识别 _ 和 *<br/>
+ie7能识别 * 和 ！important<br/>
+FF 能识别！important</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/">浏览器兼容问题集</a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T14:25:21+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
+
+</div>
+
+
+	
+	
+          | <a href="#comments">Comments</a>
+    
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> &#8212;>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="浏览器兼容问题集"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"mirrur"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    mirrur
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>
