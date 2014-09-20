@@ -103,6 +103,87 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/">
+		
+			同一个页面中多个script标签中代码运行情况</a>
+	</h2>
+	<div class="entry-content">
+		<p>情况①，函数声明提前，后面定义的f1覆盖了前面的f1，故执行到alert时输出6</p>
+
+<pre><code> &lt;script type="text/javascript"&gt;
+          var a, b, c;
+          function f1(b,c){
+               a = b + c;
+               return a;
+          }
+          alert(f1(2,3));
+          function f1(b,c){
+               a = b * c;
+               return a;
+          }
+ &lt;/script&gt;
+//输出6
+</code></pre>
+
+<p>情况②，JS是按块加载的。每个<code>&lt;script/&gt;</code>标签作为一块。按顺序执行，在第一个代码块中，f1还没被覆盖，故执行时输出5，执行到第二个代码块，f1被重新定义，此时会alert时输出6</p>
+
+<pre><code> &lt;script type="text/javascript"&gt;
+      var a, b, c;
+      function f1(b,c){
+           a = b + c;
+           return a;
+      }
+      alert(f1(2,3));
+ &lt;/script&gt;
+ &lt;script type="text/javascript"&gt;    
+      function f1(b,c){
+           a = b * c;
+           return a;
+      }
+ &lt;/script&gt;
+//输出5
+</code></pre>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/">同一个页面中多个script标签中代码运行情况</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-20T21:46:15+08:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/javascript/'>javascript</a>
+
+</div>
+
+
+	
+	
+          | <a href="/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/#comments">Comments</a>
+    
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2014/09/18/ietiao-jian-zhu-shi/">
 		
 			IE条件注释</a>
