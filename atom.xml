@@ -4,7 +4,7 @@
   <title><![CDATA[Mirrur]]></title>
   <link href="http://mirrur.github.io/atom.xml" rel="self"/>
   <link href="http://mirrur.github.io/"/>
-  <updated>2014-09-16T12:51:00+08:00</updated>
+  <updated>2014-09-20T22:09:47+08:00</updated>
   <id>http://mirrur.github.io/</id>
   <author>
     <name><![CDATA[mirrur]]></name>
@@ -12,6 +12,82 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[同一个页面中多个script标签中代码运行情况]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/"/>
+    <updated>2014-09-20T21:46:15+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang</id>
+    <content type="html"><![CDATA[<p>情况①，函数声明提前，后面定义的f1覆盖了前面的f1，故执行到alert时输出6</p>
+
+<pre><code> &lt;script type="text/javascript"&gt;
+          var a, b, c;
+          function f1(b,c){
+               a = b + c;
+               return a;
+          }
+          alert(f1(2,3));
+          function f1(b,c){
+               a = b * c;
+               return a;
+          }
+ &lt;/script&gt;
+//输出6
+</code></pre>
+
+<p>情况②，JS是按块加载的。每个<code>&lt;script/&gt;</code>标签作为一块。按顺序执行，在第一个代码块中，f1还没被覆盖，故执行时输出5，执行到第二个代码块，f1被重新定义，此时会alert时输出6</p>
+
+<pre><code> &lt;script type="text/javascript"&gt;
+      var a, b, c;
+      function f1(b,c){
+           a = b + c;
+           return a;
+      }
+      alert(f1(2,3));
+ &lt;/script&gt;
+ &lt;script type="text/javascript"&gt;    
+      function f1(b,c){
+           a = b * c;
+           return a;
+      }
+ &lt;/script&gt;
+//输出5
+</code></pre>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/">同一个页面中多个script标签中代码运行情况</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IE条件注释]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/18/ietiao-jian-zhu-shi/"/>
+    <updated>2014-09-18T16:46:46+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/18/ietiao-jian-zhu-shi</id>
+    <content type="html"><![CDATA[<p>条件注释认识：<br/>
+1.IE条件注释是IE专有的，能够根据条件显示代码块。<br/>
+2.在其他浏览器看来条件注释是常规注释，因此本质上是无害的。<br/>
+3.条件注释在IE5中首次出现，故只对IE5及以上的版本有效。</p>
+
+<p>主要缺点：<br/>
+条件注释放在html文件中而不是css中。若IE版本变动，不得不到每个页面中去更新维护。</p>
+
+<p>条件：<br/>
+gt : greater than，选择条件版本以上版本，不包含条件版本<br/>
+lt : less than，选择条件版本以下版本，不包含条件版本<br/>
+gte : greater than or equal，选择条件版本以上版本，包含条件版本<br/>
+lte : less than or equal，选择条件版本以下版本，包含条件版本<br/>
+! : 选择条件版本以外所有版本，无论高低</p>
+
+<pre><code>&lt;!--[if lt IE 7 ]&gt;&lt;html class="ie6" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 7 ]&gt;&lt;html class="ie7" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 8 ]&gt;&lt;html class="ie8" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 9 ]&gt;&lt;html class="ie9" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt;&lt;html class="" lang="zh-cn"&gt;&lt;!--&lt;![endif]--&gt;
+</code></pre>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/18/ietiao-jian-zhu-shi/">IE条件注释</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[javascript函数认识]]></title>
@@ -64,7 +140,7 @@
   d、toLocaleString()和toString()：返回函数的代码<br/>
   e、valueOf()：返回函数的代码</p></blockquote>
 
-<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/16/javascripthan-shu-ren-shi/">万能的浮动元素清除</a></p>
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/16/javascripthan-shu-ren-shi/">javascript函数认识</a></p>
 ]]></content>
   </entry>
   

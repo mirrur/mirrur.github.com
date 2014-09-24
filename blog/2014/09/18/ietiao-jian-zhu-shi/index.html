@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Blog Archives  | Mirrur</title>
+	<title>IE条件注释  | Mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
@@ -97,99 +97,49 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">IE条件注释</h2>
+	<div class="entry-content"><p>条件注释认识：<br/>
+1.IE条件注释是IE专有的，能够根据条件显示代码块。<br/>
+2.在其他浏览器看来条件注释是常规注释，因此本质上是无害的。<br/>
+3.条件注释在IE5中首次出现，故只对IE5及以上的版本有效。</p>
 
+<p>主要缺点：<br/>
+条件注释放在html文件中而不是css中。若IE版本变动，不得不到每个页面中去更新维护。</p>
 
-	
-	
-	<section class="archives"><h1 class="year">2014</h1>
+<p>条件：<br/>
+gt : greater than，选择条件版本以上版本，不包含条件版本<br/>
+lt : less than，选择条件版本以下版本，不包含条件版本<br/>
+gte : greater than or equal，选择条件版本以上版本，包含条件版本<br/>
+lte : less than or equal，选择条件版本以下版本，包含条件版本<br/>
+! : 选择条件版本以外所有版本，无论高低</p>
 
-<article>
-	<h2 class="title"><a href="/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/">同一个页面中多个script标签中代码运行情况</a></h2>
-	<div class="meta">
-		<div class="date">Sep 20</div>
-		
+<pre><code>&lt;!--[if lt IE 7 ]&gt;&lt;html class="ie6" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 7 ]&gt;&lt;html class="ie7" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 8 ]&gt;&lt;html class="ie8" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 9 ]&gt;&lt;html class="ie9" lang="zh-cn"&gt;&lt;![endif]--&gt;
+&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt;&lt;html class="" lang="zh-cn"&gt;&lt;!--&lt;![endif]--&gt;
+</code></pre>
 
-<div class="tags">
-
-	<a class='category' href='/blog/categories/javascript/'>javascript</a>
-
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/18/ietiao-jian-zhu-shi/">IE条件注释</a></p>
 </div>
 
 
-	    
-	</div>
-</article>
+<div class="meta">
+	<div class="date">
 
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-18T16:46:46+08:00" pubdate data-updated="true"></time></div>
 	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/18/ietiao-jian-zhu-shi/">IE条件注释</a></h2>
-	<div class="meta">
-		<div class="date">Sep 18</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/16/javascripthan-shu-ren-shi/">javascript函数认识</a></h2>
-	<div class="meta">
-		<div class="date">Sep 16</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/javascript/'>javascript</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">万能的浮动元素清除</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/css/'>css</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/">浏览器兼容问题集</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
 
 <div class="tags">
 
@@ -198,69 +148,44 @@ $(document).ready(
 </div>
 
 
-	    
-	</div>
-</article>
-
 	
+	
+          | <a href="#comments">Comments</a>
+    
+</div></article>
 
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/jquery1-dot-9-xia-jian-ce-liu-lan-qi-lei-xing-he-ban-ben/">jquery1.9 下检测浏览器类型和版本</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/jquery/'>jquery</a>
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> &#8212;>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
 
-	    
-	</div>
-</article>
-
-	
 
 
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/ie-8-error-with-eot-css3111/">IE 8 error with EOT: CSS3111</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/font-face/'>font-face</a>, <a class='category' href='/blog/categories/ie/'>ie</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/">IE layout 布局的认识</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ie/'>ie</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="IE条件注释"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"mirrur"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
