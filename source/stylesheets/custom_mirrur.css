@@ -2,3 +2,56 @@
 	display: none;
 }
 
+/******************
+slider plugin style
+******************/
+.sliderCont{
+	width: 440px;
+	height: 220px;
+	position: relative;
+	overflow: hidden;
+	margin: 20px auto;
+}
+.leftCov, .rightCov {
+	height: 100%;
+	width: 110px;
+	background: #fff;
+	position: absolute;
+	z-index: 1;
+	opacity: 0.7;
+	filter: alpha(opacity=70);/*IE*/
+}
+.leftCov {
+	left: 0;
+}
+.rightCov {
+	right: 0;
+}
+article .entry-content .sliderList { margin: 0 auto;}
+.sliderList{
+	width: 880px;
+	height: 220px;
+	position: absolute;
+	left: 0px;
+	list-style: none;
+}
+.sliderList li{
+	float: left;
+	width: 220px;
+}
+.arrow {
+	position: relative;	
+	z-index: 2;
+	cursor: pointer;
+}
+.cf:before,
+.cf:after {
+    content: " "; 
+    display: table; 
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
