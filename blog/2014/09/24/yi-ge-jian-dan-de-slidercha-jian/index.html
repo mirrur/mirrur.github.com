@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>IE layout 布局的认识  | Mirrur</title>
+	<title>一个简单的slider插件  | Mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
@@ -101,34 +101,34 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">IE Layout 布局的认识</h2>
-	<div class="entry-content"><p>ie与大多数浏览器的表现不一致有一个重要原因是，ie显示引擎中使用了layout布局，是很多显示bug的根源。</p>
+	<h2 class="title">一个简单的slider插件</h2>
+	<div class="entry-content"><p>之前在项目中要用到一个点击切换的slider，本来这是比较常见的效果，成熟插件也已经有好多，但这次要的效果有点不一样。所以自己搞了个。顺便学了下如何写插件，嘿嘿~</p>
 
-<p>windows上的ie使用布局概念来控制元素的尺寸和定位。拥有布局的元素负责本身及其子元素的尺寸设置和定位。没拥有布局的元素，其尺寸和位置由最近的拥有布局的祖先元素控制。</p>
+<div class="sliderCont">
+    <ul class="sliderList">
+        <li>
+            <img src="/images/pluginDemo/mirrur.png" />
+        </li>
+        <li>
+            <img src="/images/pluginDemo/mirrur.png" />
+        </li>
+        <li>
+            <img src="/images/pluginDemo/mirrur.png" />
+        </li>
+        <li>
+            <img src="/images/pluginDemo/mirrur.png" />
+        </li>
+    </ul>
+    <div class="leftCov"></div>
+    <div class="rightCov"></div>
+    <span class="arrow" id="pre">pre</span>
+    <span class="arrow" id="next">next</span>
+</div>
 
-<p>ie为毛要这么做呢？主要是为了减少性能开销。</p>
 
-<p>默认情况下拥有布局的元素：<br/>
-body, html, table, tr, td,<br/>
-img, hr, input, select, textarea, button<br/>
-iframe, embed, object, applet, ,marquee</p>
+<p><a href="https://github.com/mirrur/Slider-Demo/archive/master.zip">Download</a></p>
 
-<p>如何查看元素是否拥有布局？javascript的hasLayout，返回true 或 false，hasLayout是只读属性，无法设置。</p>
-
-<p>如何使元素拥有布局？ 通过设置一些css属性会自动触发ie的layout：<br/>
-float: left/ right<br/>
-display: inline-block<br/>
-width/height/zoom: 任何值<br/>
-writing-mode: tb-rl<br/>
-ie7中，触发布局的还有：<br/>
-overflow: hidden/scroll/auto<br/>
-min-width:任何值<br/>
-max-width:除none之外的任何值</p>
-
-<p>ie7虽说已修复了大多数与布局相关的问题，但其解决方法是找到常见的显示bug，然后通过在代码中创建例外来处理它们，而不是解决底层问题。<br/>
-ie8使用全新的显示引擎，据称不用hasLayout属性，故解决了这些问题的根源。</p>
-
-<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/">IE layout布局的认识</a></p>
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/24/yi-ge-jian-dan-de-slidercha-jian/">一个简单的slider插件</a></p>
 </div>
 
 
@@ -145,12 +145,12 @@ ie8使用全新的显示引擎，据称不用hasLayout属性，故解决了这�
   
 
 
-<time datetime="2014-09-15T12:51:51+08:00" pubdate data-updated="true"></time></div>
+<time datetime="2014-09-24T22:12:43+08:00" pubdate data-updated="true"></time></div>
 	
 
 <div class="tags">
 
-	<a class='category' href='/blog/categories/ie/'>ie</a>
+	<a class='category' href='/blog/categories/plugin/'>plugin</a>
 
 </div>
 
@@ -179,7 +179,7 @@ ie8使用全新的显示引擎，据称不用hasLayout属性，故解决了这�
   <section>
     <h1>Comments</h1>
     <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-title="IE Layout 布局的认识"></div>
+<div class="ds-thread" data-title="一个简单的slider插件"></div>
 <script type="text/javascript">
   var duoshuoQuery = {short_name:"mirrur"};
   (function() {
