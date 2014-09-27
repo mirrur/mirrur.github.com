@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: plugin | Mirrur]]></title>
+  <link href="http://mirrur.github.io/blog/categories/plugin/atom.xml" rel="self"/>
+  <link href="http://mirrur.github.io/"/>
+  <updated>2014-09-24T23:19:31+08:00</updated>
+  <id>http://mirrur.github.io/</id>
+  <author>
+    <name><![CDATA[mirrur]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[一个简单的slider插件]]></title>
+    <link href="http://mirrur.github.io/blog/2014/09/24/yi-ge-jian-dan-de-slidercha-jian/"/>
+    <updated>2014-09-24T22:12:43+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/09/24/yi-ge-jian-dan-de-slidercha-jian</id>
+    <content type="html"><![CDATA[<p>之前在项目中要用到一个点击切换的slider，本来这是比较常见的效果，成熟插件也已经有好多，但这次要的效果有点不一样。所以自己搞了个。顺便学了下如何写插件，嘿嘿~</p>
+
+<div class="sliderCont">
+    <ul class="sliderList">
+        <li>
+            <img src="http://mirrur.github.io/images/pluginDemo/mirrur.png" />
+        </li>
+        <li>
+            <img src="http://mirrur.github.io/images/pluginDemo/mirrur.png" />
+        </li>
+        <li>
+            <img src="http://mirrur.github.io/images/pluginDemo/mirrur.png" />
+        </li>
+        <li>
+            <img src="http://mirrur.github.io/images/pluginDemo/mirrur.png" />
+        </li>
+    </ul>
+    <div class="leftCov"></div>
+    <div class="rightCov"></div>
+    <span class="arrow" id="pre">pre</span>
+    <span class="arrow" id="next">next</span>
+</div>
+
+
+<p><a href="https://github.com/mirrur/Slider-Demo/archive/master.zip">Download</a></p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/24/yi-ge-jian-dan-de-slidercha-jian/">一个简单的slider插件</a></p>
+]]></content>
+  </entry>
+  
+</feed>
