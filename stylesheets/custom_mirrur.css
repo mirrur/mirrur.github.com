@@ -55,3 +55,15 @@ article .entry-content .sliderList { margin: 0 auto;}
 .cf {
     *zoom: 1;
 }
+article div.entry-content ul {
+	margin-top: 0;
+	padding-left: 10px;
+	list-style: none;
+	border-left: solid 3px #bf0222;
+}
+article .entry-content h4 {
+	margin-bottom: 10px;
+}
+.post .entry-content p{
+	margin-bottom: 0;
+}

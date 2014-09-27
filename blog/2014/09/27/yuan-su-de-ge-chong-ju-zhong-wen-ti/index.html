@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Category: css  | Mirrur</title>
+	<title>元素的各种居中问题  | Mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
-<meta name="description" content="Category: css"> <meta name="keywords" content="">
+<meta name="description" content="记录一个人的过去、现在、和未来，简简单单..."> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -100,19 +100,59 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">元素的各种居中问题</h2>
+	<div class="entry-content"><p>居中有水平居中和垂直居中，各种居中又分多种情况。</p>
+
+<h4>水平居中</h4>
+
+<p>行内元素居中：text-align: center;      <br/>
+块级元素居中： <br/>
+   A. 元素宽度确定： margin: x auto;   <br/>
+   B. 元素宽度不确定（三种实现方法）：</p>
+
+<ul>
+<li>1.table实现,不用设置width，对table设置margin: x auto; 就ok了</li>
+<li>2.父元素text-align: center;<br/>
+  居中的子元素display: inline;//这样的话子元素就不能自定义宽度咯</li>
+<li>3.父元素float起来，并设position: relative; left: 50%;     <br/>
+  子元素position:relative; left: -50%;</li>
+</ul>
 
 
-	
-	
-	<section class="archives"><h1 class="year">2014</h1>
+<h4>垂直居中</h4>
 
-<article>
-	<h2 class="title"><a href="/blog/2014/09/27/yuan-su-de-ge-chong-ju-zhong-wen-ti/">元素的各种居中问题</a></h2>
-	<div class="meta">
-		<div class="date">Sep 27</div>
-		
+<p>父元素高度不确定：父元素设置上下padding   <br/>
+父元素高度确定:<br/>
+A. 单行文本：设置父元素line-height的值等于height的值      <br/>
+B. 多行文本（两种实现方式）：</p>
+
+<ul>
+<li>1.用table包装，设置td/th为vertical-align: middle;</li>
+<li>2.设置祖先元素的display:table-cell;//ie8以上及ff支持  <br/>
+  兼容ie6/7给父子两元素relative定位设top: 50%和top: -50%</li>
+</ul>
+
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/27/yuan-su-de-ge-chong-ju-zhong-wen-ti/">元素的各种居中问题</a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-27T15:59:53+08:00" pubdate data-updated="true"></time></div>
+	
 
 <div class="tags">
 
@@ -121,30 +161,44 @@ $(document).ready(
 </div>
 
 
-	    
-	</div>
-</article>
-
 	
+	
+          | <a href="#comments">Comments</a>
+    
+</div></article>
 
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">万能的浮动元素清除</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/css/'>css</a>
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> &#8212;>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
 
-	    
-	</div>
-</article>
 
+
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="元素的各种居中问题"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"mirrur"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
