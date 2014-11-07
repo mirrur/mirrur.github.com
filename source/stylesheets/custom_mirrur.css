@@ -1,7 +1,11 @@
-/*.post .meta .date {
-	display: none;
+.post .meta .date {
+	/*display: none;*/
+	width: 75px;
+	overflow: hidden;
 }
-*/
+.post .meta .date time {
+	white-space: nowrap;
+}
 /******************
 slider plugin style
 ******************/
