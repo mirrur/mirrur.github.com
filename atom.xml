@@ -4,7 +4,7 @@
   <title><![CDATA[Mirrur]]></title>
   <link href="http://mirrur.github.io/atom.xml" rel="self"/>
   <link href="http://mirrur.github.io/"/>
-  <updated>2014-11-07T21:35:22+08:00</updated>
+  <updated>2014-11-07T22:46:36+08:00</updated>
   <id>http://mirrur.github.io/</id>
   <author>
     <name><![CDATA[mirrur]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[服务器开启Gzip压缩但js文件并无压缩]]></title>
+    <link href="http://mirrur.github.io/blog/2014/11/07/fu-wu-qi-kai-qi-gzipya-suo-dan-jswen-jian-bing-wu-ya-suo/"/>
+    <updated>2014-11-07T00:00:00+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/11/07/fu-wu-qi-kai-qi-gzipya-suo-dan-jswen-jian-bing-wu-ya-suo</id>
+    <content type="html"><![CDATA[<p>最近在做优化，发现网站的js文件没有启用Gzip压缩，已确定服务器开启了Gzip压缩了，但是单单对js无效，最后才发现原来是配置文件里的gzip_types没有设置对，不同网站js的content-type类型可能不一样，有的可能是text/javascript，有的可能是application/javascript，具体可以查看文件的header信息，也可用chrome开发者工具的网络板块中查看文件的type类型:</p>
+
+<p><br/></p>
+
+<p><img src="http://mirrur.github.io/images/postImg/contentType.jpg" /></p>
+
+<p><br/></p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/11/07/fu-wu-qi-kai-qi-gzipya-suo-dan-jswen-jian-bing-wu-ya-suo">服务器开启Gzip压缩但js文件并无压缩</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[一个超酷slider插件]]></title>
