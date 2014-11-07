@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Category: ie  | Mirrur</title>
+	<title>  | Mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
-<meta name="description" content="Category: ie"> <meta name="keywords" content="">
+<meta name="description" content="记录一个人的过去、现在、和未来，简简单单..."> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -101,98 +101,64 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
-	
 
 
-	
-	
-	<section class="archives"><h1 class="year">2014</h1>
-
-<article>
-	<h2 class="title"><a href="/blog/2014/10/29/yi-ge-chao-ku-slidercha-jian/">一个超酷slider插件</a></h2>
-	<div class="meta">
-		<div class="date">Oct 29</div>
+    <article class="post">
+	<h2 class="title">
 		
+		<a href="/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/">
+		
+			IE Layout 布局的认识</a>
+	</h2>
+	<div class="entry-content">
+		<p>ie与大多数浏览器的表现不一致有一个重要原因是，ie显示引擎中使用了layout布局，是很多显示bug的根源。</p>
 
-<div class="tags">
+<p>windows上的ie使用布局概念来控制元素的尺寸和定位。拥有布局的元素负责本身及其子元素的尺寸设置和定位。没拥有布局的元素，其尺寸和位置由最近的拥有布局的祖先元素控制。</p>
 
-	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/plugin/'>plugin</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
+<p>ie为毛要这么做呢？主要是为了减少性能开销。</p>
 
-</div>
+<p>默认情况下拥有布局的元素：<br/>
+body, html, table, tr, td,<br/>
+img, hr, input, select, textarea, button<br/>
+iframe, embed, object, applet, ,marquee</p>
 
+<p>如何查看元素是否拥有布局？javascript的hasLayout，返回true 或 false，hasLayout是只读属性，无法设置。</p>
 
-	    
+<p>如何使元素拥有布局？ 通过设置一些css属性会自动触发ie的layout：<br/>
+float: left/ right<br/>
+display: inline-block<br/>
+width/height/zoom: 任何值<br/>
+writing-mode: tb-rl<br/>
+ie7中，触发布局的还有：<br/>
+overflow: hidden/scroll/auto<br/>
+min-width:任何值<br/>
+max-width:除none之外的任何值</p>
+
+<p>ie7虽说已修复了大多数与布局相关的问题，但其解决方法是找到常见的显示bug，然后通过在代码中创建例外来处理它们，而不是解决底层问题。<br/>
+ie8使用全新的显示引擎，据称不用hasLayout属性，故解决了这些问题的根源。</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/">IE layout布局的认识</a></p>
+
+		
+		
 	</div>
-</article>
 
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-15T12:51:51+08:00" pubdate data-updated="true"></time></div>
 	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/18/ietiao-jian-zhu-shi/">IE条件注释</a></h2>
-	<div class="meta">
-		<div class="date">Sep 18</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/liu-lan-qi-jian-rong-wen-ti-ji/">浏览器兼容问题集</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/ie-8-error-with-eot-css3111/">IE 8 error with EOT: CSS3111</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/font-face/'>font-face</a>, <a class='category' href='/blog/categories/ie/'>ie</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/">IE layout 布局的认识</a></h2>
-	<div class="meta">
-		<div class="date">Sep 15</div>
-		
 
 <div class="tags">
 
@@ -201,11 +167,19 @@ $(document).ready(
 </div>
 
 
-	    
-	</div>
-</article>
+	
+	
+          | <a href="/blog/2014/09/15/ie-layout-bu-ju-de-ren-shi/#comments">Comments</a>
+    
+</div></article>
 
-</div>
+<nav id="pagenavi">
+    
+        <a href="1" class="prev">Prev</a>
+    
+    
+    <div class="center"><a href="/archives">Blog Archives</a></div>
+</nav></div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
     mirrur
