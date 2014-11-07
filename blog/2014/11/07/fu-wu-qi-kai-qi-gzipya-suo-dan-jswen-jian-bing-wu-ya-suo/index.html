@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>一个简单的slider插件  | Mirrur</title>
+	<title>服务器开启Gzip压缩但js文件并无压缩  | Mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
@@ -101,34 +101,16 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">一个简单的slider插件</h2>
-	<div class="entry-content"><p>之前在项目中要用到一个点击切换的slider，本来这是比较常见的效果，成熟插件也已经有好多，但这次要的效果有点不一样。所以自己搞了个。顺便学了下如何写插件，嘿嘿~</p>
+	<h2 class="title">服务器开启Gzip压缩但js文件并无压缩</h2>
+	<div class="entry-content"><p>最近在做优化，发现网站的js文件没有启用Gzip压缩，已确定服务器开启了Gzip压缩了，但是单单对js无效，最后才发现原来是配置文件里的gzip_types没有设置对，不同网站js的content-type类型可能不一样，有的可能是text/javascript，有的可能是application/javascript，具体可以查看文件的header信息，也可用chrome开发者工具的网络板块中查看文件的type类型:</p>
 
-<div class="sliderCont">
-    <ul class="sliderList">
-        <li>
-            <img src="/images/pluginDemo/mirrur.png" />
-        </li>
-        <li>
-            <img src="/images/pluginDemo/mirrur.png" />
-        </li>
-        <li>
-            <img src="/images/pluginDemo/mirrur.png" />
-        </li>
-        <li>
-            <img src="/images/pluginDemo/mirrur.png" />
-        </li>
-    </ul>
-    <div class="leftCov"></div>
-    <div class="rightCov"></div>
-    <span class="arrow" id="pre">pre</span>
-    <span class="arrow" id="next">next</span>
-</div>
+<p><br/></p>
 
+<p><img src="/images/postImg/contentType.jpg" /></p>
 
-<p><a href="https://github.com/mirrur/Slider-Demo/archive/master.zip">Download</a></p>
+<p><br/></p>
 
-<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/24/yi-ge-jian-dan-de-slidercha-jian/">一个简单的slider插件</a></p>
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/11/07/fu-wu-qi-kai-qi-gzipya-suo-dan-jswen-jian-bing-wu-ya-suo">服务器开启Gzip压缩但js文件并无压缩</a></p>
 </div>
 
 
@@ -145,12 +127,12 @@ $(document).ready(
   
 
 
-<time datetime="2014-09-24T22:12:43+08:00" pubdate data-updated="true">2014-09-24T22:12:43+08:00</time></div>
+<time datetime="2014-11-07T00:00:00+08:00" pubdate data-updated="true">2014-11-07T00:00:00+08:00</time></div>
 	
 
 <div class="tags">
 
-	<a class='category' href='/blog/categories/plugin/'>plugin</a>
+	<a class='category' href='/blog/categories/fu-wu-qi/'>服务器</a>
 
 </div>
 
@@ -179,7 +161,7 @@ $(document).ready(
   <section>
     <h1>Comments</h1>
     <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-title="一个简单的slider插件"></div>
+<div class="ds-thread" data-title="服务器开启Gzip压缩但js文件并无压缩"></div>
 <script type="text/javascript">
   var duoshuoQuery = {short_name:"mirrur"};
   (function() {
