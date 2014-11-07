@@ -1,7 +1,7 @@
-.post .meta .date {
+/*.post .meta .date {
 	display: none;
 }
-
+*/
 /******************
 slider plugin style
 ******************/
@@ -68,4 +68,9 @@ article .entry-content h4 {
 }
 .post .entry-content p{
 	margin-bottom: 0;
+}
+
+ article h2.title {
+	font-size: 26px;
+	padding-bottom: 0.5em;
 }
