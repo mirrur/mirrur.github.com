@@ -4,7 +4,7 @@
   <title><![CDATA[Mirrur]]></title>
   <link href="http://mirrur.github.io/atom.xml" rel="self"/>
   <link href="http://mirrur.github.io/"/>
-  <updated>2014-11-07T23:06:08+08:00</updated>
+  <updated>2014-11-09T23:42:36+08:00</updated>
   <id>http://mirrur.github.io/</id>
   <author>
     <name><![CDATA[mirrur]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[php 实现图片等文件的直接下载]]></title>
+    <link href="http://mirrur.github.io/blog/2014/11/09/php-shi-xian-tu-pian-deng-wen-jian-de-zhi-jie-xia-zai/"/>
+    <updated>2014-11-09T23:24:41+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/11/09/php-shi-xian-tu-pian-deng-wen-jian-de-zhi-jie-xia-zai</id>
+    <content type="html"><![CDATA[<p>html文件:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;download pic file&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href="download.php?filename=slider.jpg"&gt;下载slide.png&lt;/a&gt;
+    &lt;a href="download.php?filename=img/350.png"&gt;下载slide.png&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>filename=slider.jpg<br/>
+filename=img/slider.jpg //文件所在路径</p>
+
+<p>php文件download.php:</p>
+
+<pre><code>&lt;?php
+$filename = $_GET['filename'];
+header('content-disposition:attachment;filename='.basename($filename));
+header('content-length:'.filesize($filename));
+readfile($filename);
+</code></pre>
+
+<p>filename = basename($filename) //设置下载下来的文件名称<br/>
+basename($filename) //返回路径中的文件名部分<br/>
+filesize($filename) //返回指定文件的大小<br/>
+readfile($filename) //输出一个文件</p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/11/09/php-shi-xian-tu-pian-deng-wen-jian-de-zhi-jie-xia-zai">php 实现图片等文件的直接下载</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[服务器开启Gzip压缩但js文件并无压缩]]></title>
