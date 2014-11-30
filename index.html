@@ -57,8 +57,13 @@ $(document).ready(
 </script>
 
 		<link href="/stylesheets/custom_mirrur.css" rel="stylesheet" type="text/css">
+	<!--flexslider syle-->
+	<link rel="stylesheet" href="/stylesheets/flexslider.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/stylesheets/demo.css" type="text/css" media="screen" />
+	<!--flexslider syle/-->
 	<script src="/javascripts/sliderDemo.js"></script>
 	<script src="/javascripts/custom_mirrur.js"></script>
+
 
 
 </head>
@@ -101,6 +106,90 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/11/30/yi-ge-xiang-ying-shi-slidercha-jian-flexslider/">
+		
+			一个响应式slider插件&#8211;flexslider</a>
+	</h2>
+	<div class="entry-content">
+		<p><img src="/images/postImg/flexSlider/flexslider.jpg"></p>
+
+<p>参数设置：</p>
+
+<pre><code>animation: "fade",              //Select your animation type (fade/slide/show)
+slideshow: true,                //Should the slider animate automatically by default? (true/false)
+slideshowSpeed: 7000,           //Set the speed of the slideshow cycling, in milliseconds
+animationDuration: 500,         //Set the speed of animations, in milliseconds
+directionNav: true,             //Create navigation for previous/next navigation? (true/false)
+controlNav: true,               //Create navigation for paging control of each clide? (true/false)
+keyboardNav: true,              //Allow for keyboard navigation using left/right keys (true/false)
+touchSwipe: true,               //Touch swipe gestures for left/right slide navigation (true/false)
+prevText: "Previous",           //Set the text for the "previous" directionNav item
+nextText: "Next",               //Set the text for the "next" directionNav item
+randomize: false,               //Randomize slide order on page load? (true/false)
+slideToStart: 0,                //The slide that the slider should start on. Array notation (0 = first slide)
+pauseOnAction: true,            //Pause the slideshow when interacting with control elements, highly recommended. (true/false)
+pauseOnHover: false,            //Pause the slideshow when hovering over slider, then resume when no longer hovering (true/false)
+controlsContainer: "",          //Advanced property: Can declare which container the navigation elements should be appended too. Default container is the flexSlider element. Example use would be ".flexslider-container", "#container", etc. If the given element is not found, the default action will be taken.
+manualControls: ""              //Advanced property: Can declare custom control navigation. Example would be ".flex-control-nav" or "#tabs-nav", etc. The number of elements in your controlNav should match the number of slides/tabs (obviously).
+</code></pre>
+
+<p>浏览器兼容：</p>
+
+<pre><code>Safari 4+,  
+Chrome 4+,  
+Firefox 3.6+,  
+Opera 10+,  
+IE7+, 
+iOS and Android.  
+</code></pre>
+
+<p>jQuery版本要求：</p>
+
+<pre><code>jQuery versions 1.3+.
+</code></pre>
+
+<p><a href="https://github.com/woothemes/FlexSlider/archive/master.zip">插件下载</a> | <a href="http://www.woothemes.com/flexslider/">woothemes</a></p>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/11/30/yi-ge-xiang-ying-shi-slidercha-jian-flexslider">一个响应式slider插件&ndash;flexslider</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-30T23:26:16+08:00" pubdate data-updated="true">2014-11-30T23:26:16+08:00</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/plugin/'>plugin</a>
+
+</div>
+
+
+	
+	
+          | <a href="/blog/2014/11/30/yi-ge-xiang-ying-shi-slidercha-jian-flexslider/#comments">Comments</a>
+    
+</div></article>
 
 
     <article class="post">
@@ -856,89 +945,6 @@ lte : less than or equal，选择条件版本以下版本，包含条件版本<b
 	
 	
           | <a href="/blog/2014/09/16/javascripthan-shu-ren-shi/#comments">Comments</a>
-    
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">
-		
-			万能的浮动元素清除</a>
-	</h2>
-	<div class="entry-content">
-		<p>刚开始学前端知识时，在书上看到清除浮动用的是增加一个空标签 <code>&lt;div class="clear"&gt;&lt;/div&gt;</code>
-这种方法是在浮动元素的后面增加一个非浮动元素，这样便改变了html结构，增加了无语义冗余标签。后来在真正工作中，才知道原来有更好的清除方法。</p>
-
-<pre><code>/**
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-    *zoom: 1;
-}
-</code></pre>
-
-<p>原理：<br/>
-①利用css伪类选择符，在父容器的尾部创建一个非浮动块级子元素，元素内容是空。<br/>
-②IE 6不支持:after选择符，需用zoom激活ie/7的<a href="http://mirrur.github.io/blog/2014/09/13/ie-layoutbu-ju-de-ren-shi/">hasLayout</a></p>
-
-<p>浏览器支持: Firefox 3.5+, Safari 4+, Chrome, Opera 9+, IE 6+</p>
-
-<p>参考链接：<a href="http://nicolasgallagher.com/micro-clearfix-hack/">A new micro clearfix hack</a><br/>
-本文链接：<a href="http://mirrur.github.io/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/">万能的浮动元素清除</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-15T14:27:13+08:00" pubdate data-updated="true">2014-09-15T14:27:13+08:00</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/css/'>css</a>
-
-</div>
-
-
-	
-	
-          | <a href="/blog/2014/09/15/mo-neng-de-fu-dong-yuan-su-qing-chu/#comments">Comments</a>
     
 </div></article>
 
