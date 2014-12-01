@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: code | Mirrur]]></title>
+  <link href="http://mirrur.github.io/blog/categories/code/atom.xml" rel="self"/>
+  <link href="http://mirrur.github.io/"/>
+  <updated>2014-12-01T23:25:47+08:00</updated>
+  <id>http://mirrur.github.io/</id>
+  <author>
+    <name><![CDATA[mirrur]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[javascript光标的定位]]></title>
+    <link href="http://mirrur.github.io/blog/2014/12/01/javascriptguang-biao-de-ding-wei/"/>
+    <updated>2014-12-01T23:22:16+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/12/01/javascriptguang-biao-de-ding-wei</id>
+    <content type="html"><![CDATA[<pre><code>function locatePoint(oInputElem, start, end){ 
+     if (oInputElem.setSelectionRange) { //FF
+          setTimeout(function() { 
+               oInputElem.setSelectionRange(start, end); //将光标定位在textarea的开头，需要定位到其他位置的请自行修改 
+               oInputElem.focus(); 
+          }, 0); 
+     }else if (oInputElem.createTextRange) { //IE
+          var tempText=oInputElem.createTextRange(); 
+          tempText.moveStart("character",0-tempText.text.length+start);
+          tempText.moveEnd("character",0-tempText.text.length+end); //结束点在容器起始位置,配合moveStart可以选中指定位置的字符
+          tempText.select(); 
+     } 
+} 
+
+ $('.auto input').click(function(){
+      var o = document.getElementById("a");
+      $('.auto input').val('年');
+      locatePoint(o, 0, 0);
+      //$('.auto input').focus();
+      //document.getElementById("a").setSelectionRange(0,0);
+
+ });
+</code></pre>
+
+<p>本文链接：<a href="http://mirrur.github.io/blog/2014/12/01/javascriptguang-biao-de-ding-wei">javascript光标的定位</a></p>
+]]></content>
+  </entry>
+  
+</feed>
