@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Category: code  | Mirrur</title>
+	<title>给一个字符的左右两边应用两种不同的颜色  | Mirrur</title>
 
 <meta name="author" content="mirrur"> 
 
-<meta name="description" content="Category: code"> <meta name="keywords" content="">
+<meta name="description" content="记录一个人的过去、现在、和未来，简简单单..."> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -105,19 +105,54 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">给一个字符的左右两边应用两种不同的颜色</h2>
+	<div class="entry-content"><p>给一个字符的左右两边应用两种不同的颜色，像下面的一样</p>
+
+<p><img src="/images/x.png" width='100' height='111'></p>
+
+<p>纯css，利用伪类实现，需要给每个字符添加类</p>
+
+<pre><code>.halfStyle {
+    position:relative;
+    display:inline-block;
+    font-size:80px; /* or any font size will work */
+    color: black; /* or transparent, any color */
+    overflow:hidden;
+    white-space: pre; /* to preserve the spaces from collapsing */
+}
+.halfStyle:before {
+    display:block;
+    z-index:1;
+    position:absolute;
+    top:0;
+    left:0;
+    width: 50%;
+    content: attr(data-content); /* dynamic content for the pseudo element */
+    overflow:hidden;
+    color: #f00;
+}
+</code></pre>
+
+<p>如果希望作用于一行字符，则可以使用js <a href="https://github.com/arbelh/HalfStyle/archive/master.zip">(download)</a></p>
+</div>
 
 
-	
-	
-	<section class="archives"><h1 class="year">2014</h1>
+<div class="meta">
+	<div class="date">
 
-<article>
-	<h2 class="title"><a href="/blog/2014/12/03/gei-inputmo-ren-de-wen-ben-zuo-yang-shi/">给input默认的文本做样式</a></h2>
-	<div class="meta">
-		<div class="date">Dec  3</div>
-		
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-03T23:20:13+08:00" pubdate data-updated="true">2014-12-03T23:20:13+08:00</time></div>
+	
 
 <div class="tags">
 
@@ -126,50 +161,44 @@ $(document).ready(
 </div>
 
 
-	    
-	</div>
-</article>
-
 	
+	
+          | <a href="#comments">Comments</a>
+    
+</div></article>
 
-
-<article>
-	<h2 class="title"><a href="/blog/2014/12/03/gei-yi-ge-zi-fu-de-zuo-you-liang-bian-ying-yong-liang-chong-bu-tong-de-yan-se/">给一个字符的左右两边应用两种不同的颜色</a></h2>
-	<div class="meta">
-		<div class="date">Dec  3</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/code/'>code</a>
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> &#8212;>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
 
-	    
-	</div>
-</article>
-
-	
 
 
-<article>
-	<h2 class="title"><a href="/blog/2014/12/01/javascriptguang-biao-de-ding-wei/">javascript光标的定位</a></h2>
-	<div class="meta">
-		<div class="date">Dec  1</div>
-		
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/code/'>code</a>
-
-</div>
-
-
-	    
-	</div>
-</article>
-
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="给一个字符的左右两边应用两种不同的颜色"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"mirrur"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 

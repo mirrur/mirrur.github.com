@@ -4,7 +4,7 @@
   <title><![CDATA[Mirrur]]></title>
   <link href="http://mirrur.github.io/atom.xml" rel="self"/>
   <link href="http://mirrur.github.io/"/>
-  <updated>2014-12-01T23:25:47+08:00</updated>
+  <updated>2014-12-03T23:42:24+08:00</updated>
   <id>http://mirrur.github.io/</id>
   <author>
     <name><![CDATA[mirrur]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[给input默认的文本做样式]]></title>
+    <link href="http://mirrur.github.io/blog/2014/12/03/gei-inputmo-ren-de-wen-ben-zuo-yang-shi/"/>
+    <updated>2014-12-03T23:39:41+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/12/03/gei-inputmo-ren-de-wen-ben-zuo-yang-shi</id>
+    <content type="html"><![CDATA[<pre><code>::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #909;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #909;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #909;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #909;
+}
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css">Q</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[给一个字符的左右两边应用两种不同的颜色]]></title>
+    <link href="http://mirrur.github.io/blog/2014/12/03/gei-yi-ge-zi-fu-de-zuo-you-liang-bian-ying-yong-liang-chong-bu-tong-de-yan-se/"/>
+    <updated>2014-12-03T23:20:13+08:00</updated>
+    <id>http://mirrur.github.io/blog/2014/12/03/gei-yi-ge-zi-fu-de-zuo-you-liang-bian-ying-yong-liang-chong-bu-tong-de-yan-se</id>
+    <content type="html"><![CDATA[<p>给一个字符的左右两边应用两种不同的颜色，像下面的一样</p>
+
+<p><img src="http://mirrur.github.io/images/x.png" width='100' height='111'></p>
+
+<p>纯css，利用伪类实现，需要给每个字符添加类</p>
+
+<pre><code>.halfStyle {
+    position:relative;
+    display:inline-block;
+    font-size:80px; /* or any font size will work */
+    color: black; /* or transparent, any color */
+    overflow:hidden;
+    white-space: pre; /* to preserve the spaces from collapsing */
+}
+.halfStyle:before {
+    display:block;
+    z-index:1;
+    position:absolute;
+    top:0;
+    left:0;
+    width: 50%;
+    content: attr(data-content); /* dynamic content for the pseudo element */
+    overflow:hidden;
+    color: #f00;
+}
+</code></pre>
+
+<p>如果希望作用于一行字符，则可以使用js <a href="https://github.com/arbelh/HalfStyle/archive/master.zip">(download)</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[javascript光标的定位]]></title>

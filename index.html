@@ -111,6 +111,139 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2014/12/03/gei-inputmo-ren-de-wen-ben-zuo-yang-shi/">
+		
+			给input默认的文本做样式</a>
+	</h2>
+	<div class="entry-content">
+		<pre><code>::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #909;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #909;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #909;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #909;
+}
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css">Q</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-03T23:39:41+08:00" pubdate data-updated="true">2014-12-03T23:39:41+08:00</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/code/'>code</a>
+
+</div>
+
+
+	
+	
+          | <a href="/blog/2014/12/03/gei-inputmo-ren-de-wen-ben-zuo-yang-shi/#comments">Comments</a>
+    
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/12/03/gei-yi-ge-zi-fu-de-zuo-you-liang-bian-ying-yong-liang-chong-bu-tong-de-yan-se/">
+		
+			给一个字符的左右两边应用两种不同的颜色</a>
+	</h2>
+	<div class="entry-content">
+		<p>给一个字符的左右两边应用两种不同的颜色，像下面的一样</p>
+
+<p><img src="/images/x.png" width='100' height='111'></p>
+
+<p>纯css，利用伪类实现，需要给每个字符添加类</p>
+
+<pre><code>.halfStyle {
+    position:relative;
+    display:inline-block;
+    font-size:80px; /* or any font size will work */
+    color: black; /* or transparent, any color */
+    overflow:hidden;
+    white-space: pre; /* to preserve the spaces from collapsing */
+}
+.halfStyle:before {
+    display:block;
+    z-index:1;
+    position:absolute;
+    top:0;
+    left:0;
+    width: 50%;
+    content: attr(data-content); /* dynamic content for the pseudo element */
+    overflow:hidden;
+    color: #f00;
+}
+</code></pre>
+
+<p>如果希望作用于一行字符，则可以使用js <a href="https://github.com/arbelh/HalfStyle/archive/master.zip">(download)</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-03T23:20:13+08:00" pubdate data-updated="true">2014-12-03T23:20:13+08:00</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/code/'>code</a>
+
+</div>
+
+
+	
+	
+          | <a href="/blog/2014/12/03/gei-yi-ge-zi-fu-de-zuo-you-liang-bian-ying-yong-liang-chong-bu-tong-de-yan-se/#comments">Comments</a>
+    
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2014/12/01/javascriptguang-biao-de-ding-wei/">
 		
 			Javascript光标的定位</a>
@@ -775,154 +908,6 @@ B. 多行文本（两种实现方式）：</p>
 	
 	
           | <a href="/blog/2014/09/24/yi-ge-jian-dan-de-slidercha-jian/#comments">Comments</a>
-    
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/">
-		
-			同一个页面中多个script标签中代码运行情况</a>
-	</h2>
-	<div class="entry-content">
-		<p>情况①，函数声明提前，后面定义的f1覆盖了前面的f1，故执行到alert时输出6</p>
-
-<pre><code> &lt;script type="text/javascript"&gt;
-          var a, b, c;
-          function f1(b,c){
-               a = b + c;
-               return a;
-          }
-          alert(f1(2,3));
-          function f1(b,c){
-               a = b * c;
-               return a;
-          }
- &lt;/script&gt;
-//输出6
-</code></pre>
-
-<p>情况②，JS是按块加载的。每个<code>&lt;script/&gt;</code>标签作为一块。按顺序执行，在第一个代码块中，f1还没被覆盖，故执行时输出5，执行到第二个代码块，f1被重新定义，此时会alert时输出6</p>
-
-<pre><code> &lt;script type="text/javascript"&gt;
-      var a, b, c;
-      function f1(b,c){
-           a = b + c;
-           return a;
-      }
-      alert(f1(2,3));
- &lt;/script&gt;
- &lt;script type="text/javascript"&gt;    
-      function f1(b,c){
-           a = b * c;
-           return a;
-      }
- &lt;/script&gt;
-//输出5
-</code></pre>
-
-<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/">同一个页面中多个script标签中代码运行情况</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-20T21:46:15+08:00" pubdate data-updated="true">2014-09-20T21:46:15+08:00</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/javascript/'>javascript</a>
-
-</div>
-
-
-	
-	
-          | <a href="/blog/2014/09/20/tong-ge-ye-mian-zhong-duo-ge-biao-qian-zhong-dai-ma-yun-xing-qing-kuang/#comments">Comments</a>
-    
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/09/18/ietiao-jian-zhu-shi/">
-		
-			IE条件注释</a>
-	</h2>
-	<div class="entry-content">
-		<p>条件注释认识：<br/>
-1.IE条件注释是IE专有的，能够根据条件显示代码块。<br/>
-2.在其他浏览器看来条件注释是常规注释，因此本质上是无害的。<br/>
-3.条件注释在IE5中首次出现，故只对IE5及以上的版本有效。</p>
-
-<p>主要缺点：<br/>
-条件注释放在html文件中而不是css中。若IE版本变动，不得不到每个页面中去更新维护。</p>
-
-<p>条件：<br/>
-gt : greater than，选择条件版本以上版本，不包含条件版本<br/>
-lt : less than，选择条件版本以下版本，不包含条件版本<br/>
-gte : greater than or equal，选择条件版本以上版本，包含条件版本<br/>
-lte : less than or equal，选择条件版本以下版本，包含条件版本<br/>
-! : 选择条件版本以外所有版本，无论高低</p>
-
-<pre><code>&lt;!--[if lt IE 7 ]&gt;&lt;html class="ie6" lang="zh-cn"&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 7 ]&gt;&lt;html class="ie7" lang="zh-cn"&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 8 ]&gt;&lt;html class="ie8" lang="zh-cn"&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 9 ]&gt;&lt;html class="ie9" lang="zh-cn"&gt;&lt;![endif]--&gt;
-&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt;&lt;html class="" lang="zh-cn"&gt;&lt;!--&lt;![endif]--&gt;
-</code></pre>
-
-<p>本文链接：<a href="http://mirrur.github.io/blog/2014/09/18/ietiao-jian-zhu-shi/">IE条件注释</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-18T16:46:46+08:00" pubdate data-updated="true">2014-09-18T16:46:46+08:00</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ie/'>ie</a>, <a class='category' href='/blog/categories/liu-lan-qi-jian-rong/'>浏览器兼容</a>
-
-</div>
-
-
-	
-	
-          | <a href="/blog/2014/09/18/ietiao-jian-zhu-shi/#comments">Comments</a>
     
 </div></article>
 
